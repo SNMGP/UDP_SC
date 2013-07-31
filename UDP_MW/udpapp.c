@@ -1,4 +1,3 @@
-
 /******************************************************************************
 
   Filename:		udpapp.h
@@ -144,10 +143,10 @@ static PT_THREAD(handle_connection(void))
 	do {    
                
                 memset(uip_appdata,NULL,strlen(uip_appdata));//初始化 uip_appdata
-                if(!(STELLA_command == 0)){
+                //if(!(STELLA_command == 0)){
                 sprintf(uip_appdata,"%s %d\n",str,STELLA_i);//格式化送出的封包 data
     	        uip_send(uip_appdata, strlen(uip_appdata));//送出封包
-                }
+                //}
                 // STELLA_send　用於存放 uip_appdata ，以便在 loop()內可顯示或改寫
                 memset(STELLA_send,NULL,sizeof(STELLA_send));//初始化 STELLA_send
                 memcpy(STELLA_send, uip_appdata, strlen(uip_appdata));//複製 送出的封包 data ( uip_appdata ) 至 STELLA_send
